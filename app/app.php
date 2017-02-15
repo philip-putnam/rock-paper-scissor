@@ -10,9 +10,10 @@
 
     $app['debug'] = true;
 
-    $app->get('/', function() {
+    $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
-      return "hello";
+    $app->get('/', function() use ($app) {
+        return $app["twig"]->render("index.html.twig");
     });
 
     return $app;
