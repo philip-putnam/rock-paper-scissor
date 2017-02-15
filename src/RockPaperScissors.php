@@ -1,6 +1,16 @@
 <?php
     class RockPaperScissors
     {
+        private $playerChoice;
+
+        function __construct($initial_choice) {
+            $this->playerChoice = $initial_choice;
+        }
+
+        function getPlayerChoice() {
+            return $this->playerChoice;
+        }
+
         function playGame($user1, $user2)
         {
             $result = "";
@@ -23,6 +33,19 @@
             }
 
             return $result;
+        }
+
+        function save()
+        {
+            array_push($_SESSION['games'], $this);
+        }
+
+        static function getAll() {
+            return $_SESSION['games'];
+        }
+
+        static function deleteAll() {
+            $_SESSION['games'] = array();
         }
     }
 ?>

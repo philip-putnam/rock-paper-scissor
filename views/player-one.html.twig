@@ -1,0 +1,22 @@
+{{ include('base.html.twig') }}
+
+<body>
+  <div class='container'>
+
+    <header>
+      <h1>Player 1's Turn</h1>
+    </header>
+
+    <form action='/player-two' method='post'>
+      <label for='player_one_choice'>Player 1, please choose your weapon!</label>
+      <select name='player_one_choice'>
+        <option></option>
+        <option>rock</option>
+        <option>paper</option>
+        <option>scissors</option>
+      </select>
+      <button type='submit' class='btn btn-danger'>Submit - Player 2's turn</button>
+    </form>
+
+  </div>
+</body>
